@@ -1,31 +1,26 @@
 import lyric from "../media/location-unknown/lyric.json";
-// import { Elm } from "./Main.elm";
+import { Elm } from "./Main.elm";
 
-// const app = Elm.Main.init({ node: document.querySelector("main") });
-
-console.log("hello world!");
-
-// const body = document.querySelector("body");
+const app: any = Elm.Main.init({ node: document.querySelector("main") });
 const audioSound: HTMLVideoElement = <HTMLVideoElement>(
   document.getElementById("audio-sound")
 );
+// const lyricText: HTMLElement = document.getElementById("lyrics");
 
-const lyricText: HTMLElement = document.getElementById("lyrics");
-// body.addEventListener(
-//   "click",
-//   function () {
-//     audioSound.play();
-//     start();
-//   },
-//   false
-// );
+console.log("hello world!");
 
-(() => {
-  setInterval(() => {
-    audioSound.play();
-  }, 1000);
+app.ports.playAudio.subscribe((): void => {
+  console.log(1);
+  audioSound.play();
   start();
-})();
+});
+
+// (() => {
+//   setInterval(() => {
+//     audioSound.play();
+//   }, 1000);
+//   start();
+// })();
 
 function start(): void {
   setInterval(function () {
@@ -35,7 +30,8 @@ function start(): void {
       // console.log(1);
       if (currTime == l) {
         console.log(lyric[l].text);
-        lyricText.innerHTML = lyricText.innerHTML + lyric[l].text;
+        // lyricText.innerHTML = lyricText.innerHTML + lyric[l].text;
+        app.ports.recievedLyrics.send(lyric[l].text);
       }
     }
   }, 1000);
