@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
+    "clean": "rm -rf build/* .cache dist",
+    "build": "parcel build src/index.html -d build",
+    "watch": "parcel watch src/index.html -d build",
+    "copy:media": "mkdir -p build/media && cp -R media/* build/media",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
