@@ -12,7 +12,6 @@ const audioSound: HTMLVideoElement = <HTMLVideoElement>(
 // })();
 
 window.onload = () => {
-  audioSound.play();
   start();
 };
 
@@ -43,6 +42,8 @@ function start(): void {
 
         const getOldText = document.getElementById(`lyric-${index - 1}`);
         if (getOldText) getOldText.setAttribute("class", `lyric-text`);
+
+        lyricContainer.scrollTop = lyricContainer.scrollHeight;
       }
     });
     // for (let l in lyric) {
