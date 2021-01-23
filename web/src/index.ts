@@ -1,15 +1,8 @@
 import lyric from "../media/location-unknown/lyric.json";
-import { Elm } from "./Main.elm";
 
-const app: any = Elm.Main.init({ node: document.querySelector("main") });
 const audioSound: HTMLVideoElement = <HTMLVideoElement>(
   document.getElementById("audio-sound")
 );
-
-app.ports.playAudio.subscribe((): void => {
-  console.log("start!");
-  start();
-});
 
 // (() => {
 //   setInterval(() => {
@@ -17,6 +10,11 @@ app.ports.playAudio.subscribe((): void => {
 //   }, 1000);
 //   start();
 // })();
+
+window.onload = () => {
+  audioSound.play();
+  start();
+};
 
 function toArray(): Array<LyricObject> {
   const result = [];
@@ -39,17 +37,12 @@ function start(): void {
       if (currTime == value.time) {
         const lyricText = document.createElement("span");
         lyricText.setAttribute("id", `lyric-${index}`);
-        lyricText.style.display = "block";
-        lyricText.style.color = "white";
-        lyricText.style.fontSize = "2rem";
-        lyricText.style.fontWeight = "bold";
+        lyricText.setAttribute("class", `lyric-text-active`);
         lyricText.innerHTML = value.lyric.text;
         lyricContainer.appendChild(lyricText);
 
         const getOldText = document.getElementById(`lyric-${index - 1}`);
-        if (getOldText) getOldText.style.color = "black";
-        // if (index == 0) return;
-        // else console.log(lyricArr[index - 1].lyric.text);
+        if (getOldText) getOldText.setAttribute("class", `lyric-text`);
       }
     });
     // for (let l in lyric) {

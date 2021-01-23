@@ -93,7 +93,7 @@ viewLyric : Model -> Html Msg
 viewLyric { lyric } =
     div
         [ id "lyric-container"
-        , class "overflow-scroll bg-green-700 h-full text-2xl"
+        , class "overflow-scroll bg-green-700 h-full text-2xl text-center"
         ]
         -- <|
         --     List.map

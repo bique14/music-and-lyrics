@@ -11,3 +11,26 @@ body {
 html {
   @apply h-full;
 }
+
+#audio-sound {
+  background: #f1f3f4;
+  filter: contrast(75%) invert(100%);
+}
+
+#navbar {
+  background: #121212;
+}
+
+.lyric-text {
+  display: block;
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.lyric-text-active {
+  display: block;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}

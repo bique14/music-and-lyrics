@@ -30,3 +30,7 @@ wish:
 	npm run clean && \
 	npm run copy:media && \
 	npm run watch
+
+start:
+	cd web && \
+	npm start
