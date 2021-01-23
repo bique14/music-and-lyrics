@@ -91,12 +91,17 @@ viewAudio { audioSrc } =
 
 viewLyric : Model -> Html Msg
 viewLyric { lyric } =
-    div [ class "overflow-scroll bg-green-700 h-full" ] <|
-        List.map
-            (\l ->
-                span [ class "block text-6xl" ] [ text l ]
-            )
-            lyric
+    div
+        [ id "lyric-container"
+        , class "overflow-scroll bg-green-700 h-full text-2xl"
+        ]
+        -- <|
+        --     List.map
+        --         (\l ->
+        --             span [ class "block text-6xl" ] [ text l ]
+        --         )
+        --         lyric
+        []
 
 
 main : Program () Model Msg
