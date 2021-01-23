@@ -10,13 +10,88 @@
 </head>
 
 
-<body class="flex flex-col h-full justify-between bg-green-700">
+<body class="relative flex flex-col h-full bg-green-700">
     <!-- <main></main> -->
-    <div class="flex flex-row h-full">
-        <div id="navbar" class="text-white h-full w-48">Home</div>
-        <div id="lyric-container" class="overflow-scroll h-full text-2xl text-center flex-1"></div>
+    <div class="flex flex-row h-full overflow-hidden">
+        <div id="navbar" class="text-white w-48 flex flex-col justify-between">
+            <div>
+                <div id="navigation" class="mx-6">
+                    <ul class="font-bold tracking-wide">
+                        <li>Home</li>
+                        <li>Browse</li>
+                        <li>Radio</li>
+                    </ul>
+                </div>
+                <div class="px-6 bg-gray-700 overflow-auto h-10">
+                    <div id="my-library" class="">
+                        <span class="font-thin text-xs tracking-widest cursor-default">YOUR LIBRARY</span>
+                        <ul class="font-bold tracking-wide">
+                            <li>Made For You</li>
+                            <li>Recently Played</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Made For You</li>
+                            <li>Recently Played</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Made For You</li>
+                            <li>Recently Played</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Made For You</li>
+                            <li>Recently Played</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Made For You</li>
+                            <li>Recently Played</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                            <li>Liked Songs</li>
+                            <li>Albums</li>
+                            <li>Artists</li>
+                            <li>Podcasts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="border-t">
+                    <button id="new-playlist-btn" class="text-left px-6 py-4 w-full">+ New Playlist</button>
+                </div>
+                <img class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/proxy/N-hm0USUZZr9Pr7kjY9rjC1T2v6qw-8K57cL1BcB3ZA3J7rlf_qiotdqAFJ_8JCc-GYzxBfgsSkmuoO0q421rBlqbr91trMuG4U56hZyTO9f0MuIpfFP" />
+
+            </div>
+        </div>
+        <div id="lyric-container" class="overflow-auto text-2xl text-left flex-1 px-32 my-12">
+
+        </div>
     </div>
-    <audio id="audio-sound" class="w-full" src="../media/location-unknown/audio.mp3" controls></audio>
+    <div class="w-full">
+        <audio id="audio-sound" class="w-full" src="../media/location-unknown/audio.mp3" controls></audio>
+    </div>
 
     <script src="index.ts"></script>
 </body>
