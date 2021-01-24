@@ -10,7 +10,7 @@
 </head>
 
 
-<body class="relative flex flex-col h-full bg-green-700">
+<body class="relative flex flex-col h-full bg-white">
     <!-- <main></main> -->
     <div class="flex flex-row h-full overflow-hidden">
         <div id="navbar" class="text-white w-48 flex flex-col justify-between">
@@ -84,25 +84,23 @@
             class="relative overflow-auto w-full h-full bg-gradient-to-t from-red-800 via-red-500 to-yellow-300">
             <div class="sticky top-0 w-full h-12 flex flex-row justify-between" style="background:rgb(251, 196, 77);">
                 <div class="flex" style="margin: 10px;">
-                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24"
-                        class="Svg-sc-1usfroi-0 jUuLJy _6fe5d5efc9b4a07d5c424071ac7cdacb-scss">
+                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24">
                         <polyline points="16 4 7 12 16 20" fill="none" stroke="rgba(255,255,255,1)"></polyline>
                     </svg>
-
-                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24"
-                        class="Svg-sc-1usfroi-0 jUuLJy _6fe5d5efc9b4a07d5c424071ac7cdacb-scss">
-                        <polyline points="8 4 17 12 8 20" fill="none" stroke="rgba(255,255,255,.4)"></polyline>
+                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                        <polyline points="8 4 17 12 8 20" fill="none" stroke="rgba(255,255,255,.6)"></polyline>
                     </svg>
-                    <input class="rounded-full px-2 mx-1" placeholder="Search" />
+                    <input class="text-sm rounded-full px-2 mx-1" placeholder="Search" />
                 </div>
                 <div class="flex" style="margin: 10px">
                     <img class="w-8 h-8 rounded-full object-cover"
                         src="https://qph.fs.quoracdn.net/main-qimg-afb17da5c699168dd3022806877d34e0" />
-                    <span class="inline-block text-white mx-2 mt-1">test-user-01</span>
+                    <span id="user-name" class="inline-block text-white text-sm mx-2 mt-1 cursor-default">NongBig</span>
                 </div>
             </div>
             <div id="show-lyric" class="overflow-auto text-2xl text-left flex-1 mx-32 my-8">
                 <!-- <div id="lyric-container" class="overflow-auto text-2xl text-left flex-1 px-32 my-12"> -->
+                <!-- <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
@@ -113,8 +111,7 @@
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
                 <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
-                <span id="lyric-14" class="lyric-text">I just need to work out some way of getting me to you</span>
-                <span id="lyric-19" class="lyric-text-current">Tryna find a way back home to you again</span>
+                <span id="lyric-19" class="lyric-text-current">Tryna find a way back home to you again</span> -->
             </div>
         </div>
 
@@ -123,7 +120,9 @@
         <div class="flex flex-col mx-4 w-80 justify-center">
             <div class="flex">
                 <div class="ellipsis text-white">
-                    <span class="text-sm text-white">Location Unknown ◐ (feat. BEKA) - Brooklyn Session</span>
+                    <span class="text-sm text-white cursor-default">
+                        Location Unknown ◐ (feat. BEKA) - Brooklyn Session
+                    </span>
                 </div>
                 <svg class="inline self-center" style="margin-left:.5rem" role="img" height="16" width="16"
                     viewBox="0 0 16 16">
@@ -133,10 +132,56 @@
                     </path>
                 </svg>
             </div>
-
-            <span class="text-xs" style="color: #b3b3b3">HONNE, BEKA</span>
+            <span class="text-xs cursor-default" style="color: #b3b3b3">HONNE, BEKA</span>
         </div>
-        <div class="absolute left-1/2 bg-gray-500">player</div>
+        <div class="flex flex-col justify-center items-center flex-1">
+            <div class="flex flex-row justify-between w-56 mb-2">
+                <svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16">
+                    <!-- shuffle icon -->
+                    <path fill="#b3b3b3"
+                        d="M4.5 6.8l.7-.8C4.1 4.7 2.5 4 .9 4v1c1.3 0 2.6.6 3.5 1.6l.1.2zm7.5 4.7c-1.2 0-2.3-.5-3.2-1.3l-.6.8c1 1 2.4 1.5 3.8 1.5V14l3.5-2-3.5-2v1.5zm0-6V7l3.5-2L12 3v1.5c-1.6 0-3.2.7-4.2 2l-3.4 3.9c-.9 1-2.2 1.6-3.5 1.6v1c1.6 0 3.2-.7 4.2-2l3.4-3.9c.9-1 2.2-1.6 3.5-1.6z">
+                    </path>
+                </svg>
+                <svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16">
+                    <!-- previous music icon -->
+                    <path fill="#b3b3b3" d="M13 2.5L5 7.119V3H3v10h2V8.881l8 4.619z"></path>
+                </svg>
+
+                <button id="toggle-play-pause-button" class="rounded-full p-1.5 cursor-pointer outline-none">
+                    <!-- play music icon -->
+                    <!-- <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="#b3b3b3" d="M4.018 14L14.41 8 4.018 2z"></path>
+                    </svg> -->
+
+                    <!-- pause music icon -->
+                    <svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="none" d="M0 0h16v16H0z"></path>
+                        <path fill="#b3b3b3" d="M3 2h3v12H3zM10 2h3v12h-3z"></path>
+                    </svg>
+                </button>
+
+                <svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16">
+                    <!-- next music icon -->
+                    <path fill="#b3b3b3" d="M11 3v4.119L3 2.5v11l8-4.619V13h2V3z"></path>
+                </svg>
+                <svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16">
+                    <!-- repeat icon -->
+                    <path fill="#b3b3b3"
+                        d="M5.5 5H10v1.5l3.5-2-3.5-2V4H5.5C3 4 1 6 1 8.5c0 .6.1 1.2.4 1.8l.9-.5C2.1 9.4 2 9 2 8.5 2 6.6 3.6 5 5.5 5zm9.1 1.7l-.9.5c.2.4.3.8.3 1.3 0 1.9-1.6 3.5-3.5 3.5H6v-1.5l-3.5 2 3.5 2V13h4.5C13 13 15 11 15 8.5c0-.6-.1-1.2-.4-1.8z">
+                    </path>
+                </svg>
+
+            </div>
+            <!-- <button id="play-button_" class="togglePlay">Play/Pause</button> -->
+
+            <div class="w-10/12 flex items-center justify-between">
+                <span id="current-time" class="text-xs cursor-default">0:00</span>
+                <div class="w-full rounded-full mx-2" style="background: rgb(64, 64, 64);">
+                    <div class="progress rounded-full" id="progress"></div>
+                </div>
+                <span id="duration-time" class="text-xs cursor-default">duration </span>
+            </div>
+        </div>
         <div class="w-60 flex flex-row justify-around mx-4">
             <svg class="h-full" role="img" height="16" width="16" viewBox="0 0 16 16">
                 <path fill="#b3b3b3"
@@ -182,9 +227,9 @@
                     </g>
                 </svg>
             </div>
-            <div class="self-center w-24 h-1.5 rounded-full" style="background: rgb(179, 179, 179);"></div>
+            <div class="self-center w-24 h-1 rounded-full" style="background: rgb(179, 179, 179);"></div>
         </div>
-        <!-- <audio id="audio-sound" class="w-full" src="../media/location-unknown/audio.mp3" controls></audio> -->
+        <audio id="audio-sound" class="w-full hidden" src="../media/location-unknown/audio.mp3" controls></audio>
     </div>
 
     <script src="index.ts"></script>

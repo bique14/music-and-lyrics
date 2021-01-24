@@ -1,19 +1,32 @@
 import lyric from "../media/location-unknown/lyric.json";
 
-const audioSound: HTMLVideoElement = <HTMLVideoElement>(
+const audioSound: HTMLAudioElement = <HTMLAudioElement>(
   document.getElementById("audio-sound")
 );
+const currentTimeSpan: HTMLElement = document.getElementById("current-time");
+const durationTimeSpan: HTMLElement = document.getElementById("duration-time");
+const lyricContainer: HTMLElement = document.getElementById("lyric-container");
+const showLyric: HTMLElement = document.getElementById("show-lyric");
+const togglePlayPause: HTMLElement = document.getElementById(
+  "toggle-play-pause-button"
+);
 
-// (() => {
-//   setInterval(() => {
-//     audioSound.play();
-//   }, 1000);
-//   start();
-// })();
+const playSvg = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="#b3b3b3" d="M4.018 14L14.41 8 4.018 2z"></path></svg>`;
+const pauseSvg = `<svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path fill="#b3b3b3" d="M3 2h3v12H3zM10 2h3v12h-3z"></path></svg>`;
 
 window.onload = () => {
-  // start();
+  const { duration } = audioSound;
+  const durationTime = toMinSec(duration);
+  durationTimeSpan.innerHTML = durationTime;
+  start();
 };
+
+function toMinSec(duration: number): string {
+  const minutes: number = Math.floor(duration / 60);
+  const seconds: string = (duration - minutes * 60).toFixed(0);
+  const addZero: string = seconds.length == 1 ? `0${seconds}` : seconds;
+  return `${minutes.toString()}:${addZero}`;
+}
 
 function toArray(): Array<LyricObject> {
   const result = [];
@@ -23,15 +36,12 @@ function toArray(): Array<LyricObject> {
 
 function start(): void {
   audioSound.play();
-  const lyricContainer: HTMLElement = document.getElementById(
-    "lyric-container"
-  );
-  const showLyric: HTMLElement = document.getElementById("show-lyric");
-
   const lyricArr: Array<LyricObject> = toArray();
   console.log(lyricArr);
+
   setInterval(function () {
     const currTime: string = audioSound.currentTime.toFixed(0);
+    currentTimeSpan.innerHTML = toMinSec(audioSound.currentTime);
 
     lyricArr.map((value, index) => {
       if (currTime == value.time) {
@@ -41,29 +51,11 @@ function start(): void {
         lyricText.innerHTML = value.lyric.text;
         showLyric.appendChild(lyricText);
         lyricContainer.appendChild(showLyric);
-
         const getOldText = document.getElementById(`lyric-${index - 1}`);
         if (getOldText) getOldText.setAttribute("class", `lyric-text`);
-
         lyricContainer.scrollTop = lyricContainer.scrollHeight;
       }
     });
-    // for (let l in lyric) {
-    //   // console.log(1);
-    //   if (currTime == l) {
-    //     console.log(lyric[l].text);
-    //     // const lyricText = document.createElement("span");
-    //     // lyricText.setAttribute("id", `lyric-${currTime}`);
-    //     // lyricText.style.display = "block";
-    //     // lyricText.style.color = "red";
-    //     // lyricText.innerHTML = lyric[l].text;
-    //     // lyricContainer.appendChild(lyricText);
-    //     // lyricText.style.color = "white";
-    //     // ---------
-    //     // lyricText.innerHTML = lyricText.innerHTML + lyric[l].text;
-    //     // app.ports.recievedLyrics.send(lyric[l].text);
-    //   }
-    // }
   }, 1000);
 }
 
@@ -77,3 +69,48 @@ type Lyric = {
   time: string;
   text: string;
 };
+
+// ---------------------------------------------------
+
+audioSound.addEventListener("playing", function (event): void {
+  const { duration } = <HTMLAudioElement>event.target;
+
+  advance(duration, audioSound);
+});
+
+audioSound.addEventListener("pause", function (_): void {
+  clearTimeout(0);
+});
+
+const advance = function (duration: number, element: HTMLAudioElement): void {
+  const progress: HTMLElement = document.getElementById("progress");
+  const increment: number = 10 / duration;
+  const percent: number = Math.min(increment * element.currentTime * 10, 100);
+  // const percent: number = Math.min(increment * element.currentTime * 10, 100);
+
+  progress.style.width = percent + "%";
+  startTimer(duration, element, percent);
+};
+
+const startTimer = function (
+  duration: number,
+  element: HTMLAudioElement,
+  percent: number
+): void {
+  if (percent < 100) {
+    setTimeout(function (): void {
+      advance(duration, element);
+    }, 100);
+  }
+};
+
+togglePlayPause.addEventListener("click", (_): void => {
+  // if (!audioSound.paused) {
+  //   audioSound.pause();
+  //   togglePlayPause.innerHTML = playSvg;
+  // } else {
+  //   audioSound.play();
+  //   togglePlayPause.innerHTML = pauseSvg;
+  // }
+  console.log("ฟังไป");
+});

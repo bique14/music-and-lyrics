@@ -12,7 +12,8 @@ html {
   @apply h-full;
 }
 
-input {
+input,
+button {
   outline: none;
 }
 
@@ -26,6 +27,10 @@ input {
   background: #121212;
 }
 
+#user-name:hover {
+  border-bottom: 1px solid white;
+}
+
 .lyric-text,
 .lyric-text-current {
   display: block;
@@ -35,6 +40,11 @@ input {
   font-size: 4vw;
   cursor: default;
   line-height: 1;
+}
+
+#show-lyric {
+  scroll-behavior: smooth;
+  transition: height 1s linear;
 }
 
 .lyric-text {
@@ -96,4 +106,25 @@ li:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.progress {
+  width: 1px;
+  height: 3px;
+  background: #b3b3b3;
+  transition: width 0.1s linear;
+}
+
+#toggle-play-pause-button {
+  border: 1px solid #b3b3b3;
+  outline: none;
+}
+
+#toggle-play-pause-button:hover {
+  box-shadow: 0px 0px 0px 1px #b3b3b3 inset;
+}
+
+#current-time,
+#duration-time {
+  color: #b3b3b3;
 }
