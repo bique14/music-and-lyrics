@@ -42,46 +42,39 @@
                     </li>
                 </ul>
             </div>
-            <div class="flex-1 overflow-auto">
-                <div class="px-6 overflow-auto">
-                    <div id="library-container" class="mb-7">
-                        <span class="block font-thin text-xs tracking-widest cursor-default mb-2">YOUR LIBRARY</span>
-                        <ul class="font-bold tracking-wide">
-                            <li>Made For You</li>
-                            <li>Recently Played</li>
-                            <li>Liked Songs</li>
-                            <li>Albums</li>
-                            <li>Artists</li>
-                            <li>Podcasts</li>
-                        </ul>
-                    </div>
-
-                    <div id="playlist-container" class="mb-7">
-                        <span class="block font-thin text-xs tracking-widest cursor-default mb-2">PLAYLISTS</span>
-                        <ul class="font-bold tracking-wide">
-                            <li>Made For You</li>
-                            <li>Recently Played</li>
-                            <li>Liked Songs</li>
-                            <li>Albums</li>
-                            <li>Artists</li>
-                            <li>Liked Songs</li>
-                            <li>Albums</li>
-                            <li>Artists</li>
-                            <li>Liked Songs</li>
-                            <li>Albums</li>
-                            <li>Artists</li>
-                            <li>Podcasts</li>
-                        </ul>
-                    </div>
+            <div id="scroll-container" class="flex-1 overflow-auto px-6">
+                <div id="library-container" class="mb-7">
+                    <span class="block font-thin text-xs tracking-widest cursor-default mb-2">YOUR LIBRARY</span>
+                    <ul class="font-bold tracking-wide">
+                        <li>Made For You</li>
+                        <li>Recently Played</li>
+                        <li>Liked Songs</li>
+                        <li>Albums</li>
+                        <li>Artists</li>
+                        <li>Podcasts</li>
+                    </ul>
                 </div>
+
+                <div id="playlist-container" class="mb-7">
+                    <span class="block font-thin text-xs tracking-widest cursor-default mb-2">PLAYLISTS</span>
+                    <ul class="font-bold tracking-wide">
+                        <li>monday 8am</li>
+                        <li>tuesday is better than monday</li>
+                        <li>wednesday green</li>
+                        <li>thursday morning</li>
+                        <li>TGI friday</li>
+                        <li>saturday night</li>
+                        <li>sunday evening</li>
+                    </ul>
+                </div>
+
             </div>
             <div>
-                <div id="new-playlist-container">
-                    <div class="inline border rounded-full w-8 justify-center"
-                        style="border: 1px solid #b3b3b3; color:#b3b3b3;">
-                        <span class="text-3xl font-thin -mt-1">+</span>
+                <div id="new-playlist-container" class="flex flex-row">
+                    <div id="new-playlist-icon" class="rounded-full text-center w-6 h-6 relative">
+                        <span class="absolute text-2xl font-thin" style="left:4px; bottom:-3px;">+</span>
                     </div>
-                    <button id="new-playlist-btn" class="text-left px-6 py-4">New Playlist</button>
+                    <button id="new-playlist-btn" class="text-sm text-left px-6 py-4">New Playlist</button>
                 </div>
                 <img class="w-full h-48 object-cover cursor-pointer"
                     src="https://i.ytimg.com/vi/btIQvYcLNoI/maxresdefault.jpg" />

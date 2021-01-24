@@ -48,8 +48,7 @@ li {
   margin-bottom: 0.75rem;
 }
 
-li:hover,
-#new-playlist-btn:hover {
+li:hover {
   color: white;
 }
 
@@ -57,12 +56,33 @@ li:hover,
   color: #b3b3b3;
   outline: none;
   cursor: default;
+  margin-top: 2px;
 }
 
 #playlist-container li {
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #new-playlist-container {
   border-top: 0.25px solid rgba(255, 255, 255, 0.2);
+}
+
+#new-playlist-icon {
+  cursor: default;
+  border: 1px solid #b3b3b3;
+  color: #b3b3b3;
+  top: 1rem;
+  left: 1rem;
+}
+
+#new-playlist-container:hover #new-playlist-icon {
+  border: 1px solid white;
+  color: white;
+}
+
+#new-playlist-container:hover #new-playlist-btn {
+  color: white;
 }
