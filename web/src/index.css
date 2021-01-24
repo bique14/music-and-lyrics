@@ -32,8 +32,9 @@ input {
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 4vw;
   cursor: default;
+  line-height: 1;
 }
 
 .lyric-text {
@@ -89,4 +90,10 @@ li:hover {
 
 #new-playlist-container:hover #new-playlist-btn {
   color: white;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

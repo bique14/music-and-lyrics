@@ -12,7 +12,7 @@ const audioSound: HTMLVideoElement = <HTMLVideoElement>(
 // })();
 
 window.onload = () => {
-  start();
+  // start();
 };
 
 function toArray(): Array<LyricObject> {
