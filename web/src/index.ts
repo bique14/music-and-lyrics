@@ -1,5 +1,16 @@
 import lyric from "../media/location-unknown/lyric.json";
 
+// type
+type LyricObject = {
+  time: string;
+  lyric: Lyric;
+};
+
+type Lyric = {
+  time: string;
+  text: string;
+};
+
 const audioSound: HTMLAudioElement = <HTMLAudioElement>(
   document.getElementById("audio-sound")
 );
@@ -18,6 +29,7 @@ window.onload = () => {
   const { duration } = audioSound;
   const durationTime = toMinSec(duration);
   durationTimeSpan.innerHTML = durationTime;
+  init();
   start();
 };
 
@@ -34,47 +46,86 @@ function toArray(): Array<LyricObject> {
   return result;
 }
 
+function getEach3(arr) {
+  return arr.slice(0, 3);
+}
+
+function init(): void {
+  const lyricArr: Array<LyricObject> = toArray();
+
+  const initialLyric = lyricArr.slice(0, 3);
+
+  initialLyric.map((value, index) => {
+    const lyricText = document.createElement("span");
+
+    lyricText.setAttribute("id", `lyric-${value.time}-${index}`);
+    lyricText.setAttribute("class", `lyric-text`);
+    lyricText.innerHTML = value.lyric.text;
+    showLyric.appendChild(lyricText);
+    lyricContainer.appendChild(showLyric);
+  });
+}
+
 function start(): void {
   audioSound.play();
   const lyricArr: Array<LyricObject> = toArray();
   console.log(lyricArr);
 
   setInterval(function () {
+    if (audioSound.currentTime >= audioSound.duration)
+      togglePlayPause.innerHTML = playSvg;
+
     const currTime: string = audioSound.currentTime.toFixed(0);
     currentTimeSpan.innerHTML = toMinSec(audioSound.currentTime);
+    console.log(currTime);
 
-    lyricArr.map((value, index) => {
+    const arr3 = lyricArr.slice(0, 3);
+    if (+currTime >= +arr3[0].time) {
+      showLyric.innerHTML = "";
+      lyricArr.shift();
+    } else return;
+
+    arr3.map((value, index) => {
+      console.log(value, index);
+      const lyricText = document.createElement("span");
+
       if (currTime == value.time) {
-        const lyricText = document.createElement("span");
-        lyricText.setAttribute("id", `lyric-${index}`);
+        lyricText.setAttribute("id", `lyric-${value.time}-${index}`);
         lyricText.setAttribute("class", `lyric-text-current`);
         lyricText.innerHTML = value.lyric.text;
         showLyric.appendChild(lyricText);
         lyricContainer.appendChild(showLyric);
-        const getOldText = document.getElementById(`lyric-${index - 1}`);
-        if (getOldText) getOldText.setAttribute("class", `lyric-text`);
-        lyricContainer.scrollTop = lyricContainer.scrollHeight;
+      } else {
+        lyricText.setAttribute("id", `lyric-${value.time}-${index}`);
+        lyricText.setAttribute("class", `lyric-text`);
+        lyricText.innerHTML = value.lyric.text;
+        showLyric.appendChild(lyricText);
+        lyricContainer.appendChild(showLyric);
       }
     });
+
+    // old version
+    // lyricArr.map((value, index) => {
+    //   console.log(value);
+    //   if (currTime == value.time) {
+    //     const lyricText = document.createElement("span");
+    //     lyricText.setAttribute("id", `lyric-${index}`);
+    //     lyricText.setAttribute("class", `lyric-text-current`);
+    //     lyricText.innerHTML = value.lyric.text;
+    //     showLyric.appendChild(lyricText);
+    //     lyricContainer.appendChild(showLyric);
+    //     const getOldText = document.getElementById(`lyric-${index - 1}`);
+    //     if (getOldText) getOldText.setAttribute("class", `lyric-text`);
+    //     lyricContainer.scrollTop = lyricContainer.scrollHeight;
+    //   }
+    // });
   }, 1000);
 }
 
-// type
-type LyricObject = {
-  time: string;
-  lyric: Lyric;
-};
-
-type Lyric = {
-  time: string;
-  text: string;
-};
-
-// ---------------------------------------------------
+// update progress bar
 
 audioSound.addEventListener("playing", function (event): void {
   const { duration } = <HTMLAudioElement>event.target;
-
   advance(duration, audioSound);
 });
 
@@ -86,7 +137,6 @@ const advance = function (duration: number, element: HTMLAudioElement): void {
   const progress: HTMLElement = document.getElementById("progress");
   const increment: number = 10 / duration;
   const percent: number = Math.min(increment * element.currentTime * 10, 100);
-  // const percent: number = Math.min(increment * element.currentTime * 10, 100);
 
   progress.style.width = percent + "%";
   startTimer(duration, element, percent);
