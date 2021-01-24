@@ -43,8 +43,26 @@ html {
 li {
   color: #b3b3b3;
   cursor: default;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+li:hover,
+#new-playlist-btn:hover {
+  color: white;
 }
 
 #new-playlist-btn {
   color: #b3b3b3;
+  outline: none;
+  cursor: default;
+}
+
+#playlist-container li {
+  font-weight: normal;
+}
+
+#new-playlist-container {
+  border-top: 0.25px solid rgba(255, 255, 255, 0.2);
 }
