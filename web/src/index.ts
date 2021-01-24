@@ -46,10 +46,6 @@ function toArray(): Array<LyricObject> {
   return result;
 }
 
-function getEach3(arr) {
-  return arr.slice(0, 3);
-}
-
 function init(): void {
   const lyricArr: Array<LyricObject> = toArray();
 
@@ -69,7 +65,6 @@ function init(): void {
 function start(): void {
   audioSound.play();
   const lyricArr: Array<LyricObject> = toArray();
-  console.log(lyricArr);
 
   setInterval(function () {
     if (audioSound.currentTime >= audioSound.duration)
@@ -77,16 +72,16 @@ function start(): void {
 
     const currTime: string = audioSound.currentTime.toFixed(0);
     currentTimeSpan.innerHTML = toMinSec(audioSound.currentTime);
-    console.log(currTime);
 
     const arr3 = lyricArr.slice(0, 3);
-    if (+currTime >= +arr3[0].time) {
-      showLyric.innerHTML = "";
-      lyricArr.shift();
-    } else return;
+    if (lyricArr.length) {
+      if (+currTime >= +arr3[0].time) {
+        showLyric.innerHTML = "";
+        lyricArr.shift();
+      } else return;
+    }
 
     arr3.map((value, index) => {
-      console.log(value, index);
       const lyricText = document.createElement("span");
 
       if (currTime == value.time) {
@@ -104,6 +99,14 @@ function start(): void {
       }
     });
 
+    if (!arr3.length) {
+      showLyric.innerHTML = "";
+      const endedText = document.createElement("span");
+      endedText.setAttribute("class", `lyric-text-current`);
+      endedText.innerHTML = "♪";
+      showLyric.appendChild(endedText);
+      lyricContainer.appendChild(showLyric);
+    }
     // old version
     // lyricArr.map((value, index) => {
     //   console.log(value);
