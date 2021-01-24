@@ -12,6 +12,10 @@ html {
   @apply h-full;
 }
 
+input {
+  outline: none;
+}
+
 #audio-sound {
   background: #f1f3f4;
   filter: contrast(75%) invert(100%);
@@ -23,7 +27,7 @@ html {
 }
 
 .lyric-text,
-.lyric-text-active {
+.lyric-text-current {
   display: block;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -33,10 +37,10 @@ html {
 }
 
 .lyric-text {
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.lyric-text-active {
+.lyric-text-current {
   color: white;
 }
 

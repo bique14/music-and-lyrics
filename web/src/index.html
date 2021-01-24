@@ -80,9 +80,31 @@
                     src="https://i.ytimg.com/vi/btIQvYcLNoI/maxresdefault.jpg" />
             </div>
         </div>
-        <div id="lyric-container" class="overflow-auto text-2xl text-left flex-1 px-32 my-12">
+        <div id="lyric-container" class="relative overflow-auto w-full h-full">
+            <div class="sticky top-0 w-full h-10 bg-green-700 flex flex-row justify-between">
+                <div class="flex" style="margin: 8px;">
+                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24"
+                        class="Svg-sc-1usfroi-0 jUuLJy _6fe5d5efc9b4a07d5c424071ac7cdacb-scss">
+                        <polyline points="16 4 7 12 16 20" fill="none" stroke="rgba(255,255,255,1)"></polyline>
+                    </svg>
 
+                    <svg class="inline mr-2" role="img" focusable="false" height="24" width="24" viewBox="0 0 24 24"
+                        class="Svg-sc-1usfroi-0 jUuLJy _6fe5d5efc9b4a07d5c424071ac7cdacb-scss">
+                        <polyline points="8 4 17 12 8 20" fill="none" stroke="rgba(255,255,255,.4)"></polyline>
+                    </svg>
+                    <input class="rounded-full px-2 mx-1" placeholder="Search" />
+                </div>
+                <div class="flex" style="margin: 8px">
+                    <img class="w-8 h-8 rounded-full object-cover"
+                        src="https://qph.fs.quoracdn.net/main-qimg-afb17da5c699168dd3022806877d34e0" />
+                    <span class="inline-block text-white mx-2 mt-1">test-user-01</span>
+                </div>
+            </div>
+            <div id="show-lyric" class="overflow-auto text-2xl text-left flex-1 mx-32 my-8">
+                <!-- <div id="lyric-container" class="overflow-auto text-2xl text-left flex-1 px-32 my-12"> -->
+            </div>
         </div>
+
     </div>
     <div class="w-full">
         <audio id="audio-sound" class="w-full" src="../media/location-unknown/audio.mp3" controls></audio>

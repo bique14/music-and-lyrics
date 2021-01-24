@@ -12,7 +12,7 @@ const audioSound: HTMLVideoElement = <HTMLVideoElement>(
 // })();
 
 window.onload = () => {
-  // start();
+  start();
 };
 
 function toArray(): Array<LyricObject> {
@@ -26,6 +26,7 @@ function start(): void {
   const lyricContainer: HTMLElement = document.getElementById(
     "lyric-container"
   );
+  const showLyric: HTMLElement = document.getElementById("show-lyric");
 
   const lyricArr: Array<LyricObject> = toArray();
   console.log(lyricArr);
@@ -36,9 +37,10 @@ function start(): void {
       if (currTime == value.time) {
         const lyricText = document.createElement("span");
         lyricText.setAttribute("id", `lyric-${index}`);
-        lyricText.setAttribute("class", `lyric-text-active`);
+        lyricText.setAttribute("class", `lyric-text-current`);
         lyricText.innerHTML = value.lyric.text;
-        lyricContainer.appendChild(lyricText);
+        showLyric.appendChild(lyricText);
+        lyricContainer.appendChild(showLyric);
 
         const getOldText = document.getElementById(`lyric-${index - 1}`);
         if (getOldText) getOldText.setAttribute("class", `lyric-text`);
