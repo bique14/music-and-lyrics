@@ -30,7 +30,7 @@ window.onload = () => {
   const durationTime = toMinSec(duration);
   durationTimeSpan.innerHTML = durationTime;
   init();
-  start();
+  // start();
 };
 
 function toMinSec(duration: number): string {
@@ -165,5 +165,9 @@ togglePlayPause.addEventListener("click", (_): void => {
   //   audioSound.play();
   //   togglePlayPause.innerHTML = pauseSvg;
   // }
-  console.log("ฟังไป");
+  // console.log(audioSound.paused);
+  if (audioSound.paused) {
+    start();
+    togglePlayPause.innerHTML = pauseSvg;
+  } else console.log("ฟังไป");
 });
