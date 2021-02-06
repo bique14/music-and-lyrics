@@ -27,8 +27,6 @@ const playSvg = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><pat
 const pauseSvg = `<svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path fill="#b3b3b3" d="M3 2h3v12H3zM10 2h3v12h-3z"></path></svg>`;
 
 window.onload = () => {
-  drink();
-
   const { duration } = audioSound;
   const durationTime = toMinSec(duration);
   durationTimeSpan.innerHTML = durationTime;
@@ -170,6 +168,7 @@ togglePlayPause.addEventListener("click", (_): void => {
   // }
   // console.log(audioSound.paused);
   if (audioSound.paused) {
+    drink();
     start();
     togglePlayPause.innerHTML = pauseSvg;
   } else console.log("ฟังไป");
