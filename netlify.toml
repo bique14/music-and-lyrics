@@ -1,0 +1,2 @@
+[build]
+  image = "node:16.0"
