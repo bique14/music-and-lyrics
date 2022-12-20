@@ -1,4 +1,4 @@
-import lyric from "../media/location-unknown/lyric.json";
+import lyric from "../public/assets/music/location-unknown/lyric.json";
 import { drink } from "./caffeine";
 
 // type
@@ -12,27 +12,31 @@ type Lyric = {
   text: string;
 };
 
+const lyricsObject: { [key: string]: { time: string; text: string } } = lyric;
+
 const audioSound: HTMLAudioElement = <HTMLAudioElement>(
   document.getElementById("audio-sound")
 );
-const currentTimeSpan: HTMLElement = document.getElementById("current-time");
-const durationTimeSpan: HTMLElement = document.getElementById("duration-time");
-const lyricContainer: HTMLElement = document.getElementById("lyric-container");
-const showLyric: HTMLElement = document.getElementById("show-lyric");
+const currentTimeSpan: HTMLElement = document.getElementById("current-time")!;
+const durationTimeSpan: HTMLElement = document.getElementById("duration-time")!;
+const lyricContainer: HTMLElement = document.getElementById("lyric-container")!;
+const showLyric: HTMLElement = document.getElementById("show-lyric")!;
 const togglePlayPause: HTMLElement = document.getElementById(
   "toggle-play-pause-button"
-);
+)!;
 
 const playSvg = `<svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="#b3b3b3" d="M4.018 14L14.41 8 4.018 2z"></path></svg>`;
 const pauseSvg = `<svg class="self-center" role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path fill="#b3b3b3" d="M3 2h3v12H3zM10 2h3v12h-3z"></path></svg>`;
 
-audioSound.onloadedmetadata = () => {
-  const { duration } = audioSound;
-  const durationTime = toMinSec(duration);
-  durationTimeSpan.innerHTML = durationTime;
-  init();
-  // start();
-};
+const checkAudioLoaded = setInterval(function () {
+  if (audioSound.readyState === 4) {
+    clearInterval(checkAudioLoaded);
+    const { duration } = audioSound;
+    const durationTime = toMinSec(duration);
+    durationTimeSpan.innerHTML = durationTime;
+    init();
+  }
+}, 100);
 
 function toMinSec(duration: number): string {
   const minutes: number = Math.floor(duration / 60);
@@ -44,7 +48,7 @@ function toMinSec(duration: number): string {
 
 function toArray(): Array<LyricObject> {
   const result = [];
-  for (let i in lyric) result.push({ time: i, lyric: lyric[i] });
+  for (let i in lyric) result.push({ time: i, lyric: lyricsObject[i] });
   return result;
 }
 
@@ -139,7 +143,7 @@ audioSound.addEventListener("pause", function (_): void {
 });
 
 const advance = function (duration: number, element: HTMLAudioElement): void {
-  const progress: HTMLElement = document.getElementById("progress");
+  const progress: HTMLElement = document.getElementById("progress")!;
   const increment: number = 10 / duration;
   const percent: number = Math.min(increment * element.currentTime * 10, 100);
 

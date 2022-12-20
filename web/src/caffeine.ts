@@ -1,5 +1,3 @@
-import "regenerator-runtime";
-
 const caffeine: HTMLVideoElement = document.createElement("video");
 
 const dataURL: string =
@@ -7,6 +5,7 @@ const dataURL: string =
 
 function brew(dataURI: string, type: string): void {
   caffeine.setAttribute("title", "Caffeine");
+  caffeine.setAttribute("id", "caffeine");
   const source: HTMLSourceElement = document.createElement("source");
   source.src = dataURI;
   source.type = `video/${type}`;
