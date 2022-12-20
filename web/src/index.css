@@ -128,3 +128,13 @@ li:hover {
 #duration-time {
   color: #b3b3b3;
 }
+
+#scroll-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: black;
+}
+
+#scroll-container::-webkit-scrollbar-thumb {
+  background-color: #5e5e5e;
+  border-radius: 10px;
+}
