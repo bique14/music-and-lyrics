@@ -1,7 +1,7 @@
 {
-  "name": "web",
+  "name": "music-and-lyrics",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "start": "npm run dev",
@@ -9,6 +9,16 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bique14/music-and-lyrics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bique14/music-and-lyrics/issues"
+  },
+  "homepage": "https://github.com/bique14/music-and-lyrics#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
