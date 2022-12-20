@@ -1,6 +1,9 @@
 import lyric from "../public/assets/music/location-unknown/lyric.json";
 import { drink } from "./caffeine";
 
+const version: string = "0.1.0";
+console.log(`version : ${version}`);
+
 // type
 type LyricObject = {
   time: string;
