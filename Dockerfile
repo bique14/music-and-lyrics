@@ -2,23 +2,23 @@ FROM node:14.13 AS builder
 
 ADD web/package.json \
   web/package-lock.json \
+  web/tsconfig.json \
   /usr/web/
 
 WORKDIR /usr/web/
 RUN npm ci
 
-COPY web/elm.json \
-  web/tailwind.config.js \
-  web/postcss.config.js \
+COPY web/tailwind.config.cjs \
+  web/postcss.config.cjs \
+  web/index.html \
   /usr/web/
-COPY web/media /usr/web/media
+COPY web/public/ /usr/web/public/
 COPY web/src/ /usr/web/src/
 
-RUN npm run copy:media
-RUN npx elm make src/*.elm --output=/dev/null
 RUN npm run build
-
+# RUN ls
+# RUN cat dist/index.html
 
 FROM nginx:1.17
 
-COPY --from=builder /usr/web/build /usr/share/nginx/html
+COPY --from=builder /usr/web/dist /usr/share/nginx/html

@@ -5,8 +5,8 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     volumes:
-      - "./web/build:/usr/share/nginx/html"
+      - "./web/dist:/usr/share/nginx/html"
     ports:
-      - "1234:80"
+      - "5173:80"
     expose:
       - 80

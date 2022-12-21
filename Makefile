@@ -16,7 +16,6 @@ clean: ## Remove stuff
 
 build: ## Build web
 	cd web && \
-	npm run copy:media && \
 	npm run build
 
 up: ## Run docker
@@ -28,7 +27,6 @@ down:
 wish:
 	cd web && \
 	npm run clean && \
-	npm run copy:media && \
 	npm run watch
 
 start:
