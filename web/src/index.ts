@@ -1,7 +1,8 @@
-import lyric from "../public/assets/music/location-unknown/lyric.json";
+// import lyric from "../public/assets/music/location-unknown/lyric.json";
+import lyric from "../public/assets/music/lifes-too-short/lyric.json";
 import { drink } from "./caffeine";
 
-const version: string = "0.1.0";
+const version: string = "1.2.0";
 console.log(`version : ${version}`);
 
 // type
@@ -43,10 +44,10 @@ const checkAudioLoaded = setInterval(function () {
 
 function toMinSec(duration: number): string {
   const minutes: number = Math.floor(duration / 60);
-  const seconds: string = (duration - minutes * 60).toFixed(0);
-  const addZero: string = seconds.length == 1 ? `0${seconds}` : seconds;
+  const seconds: number = Math.floor(duration % 60);
+  const formattedSeconds: string = seconds < 10 ? `0${seconds}` : `${seconds}`;
 
-  return `${minutes.toString()}:${addZero}`;
+  return `${minutes}:${formattedSeconds}`;
 }
 
 function toArray(): Array<LyricObject> {
@@ -109,12 +110,14 @@ function start(): void {
     });
 
     if (!arr3.length) {
-      showLyric.innerHTML = "";
-      const endedText = document.createElement("span");
-      endedText.setAttribute("class", `lyric-text-current`);
-      endedText.innerHTML = "♪";
-      showLyric.appendChild(endedText);
-      lyricContainer.appendChild(showLyric);
+      setTimeout(() => {
+        showLyric.innerHTML = "";
+        const endedText = document.createElement("span");
+        endedText.setAttribute("class", `lyric-text-current`);
+        endedText.innerHTML = "♪";
+        showLyric.appendChild(endedText);
+        lyricContainer.appendChild(showLyric);
+      }, 4000);
     }
     // old version
     // lyricArr.map((value, index) => {

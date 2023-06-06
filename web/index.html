@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./src/index.css" />
   </head>
 
-  <body class="relative flex flex-col h-full bg-white">
+  <body class="hidden relative md:flex flex-col h-full bg-white">
     <!-- <main></main> -->
     <div class="flex flex-row h-full overflow-hidden">
-      <div id="navbar" class="text-white w-48 flex flex-col justify-between">
+      <div id="navbar" class="text-white w-56 flex flex-col justify-between">
         <div id="navigation" class="mx-6 my-4 mb-6">
           <ul class="font-bold tracking-wide">
             <li class="mb-3 flex">
@@ -71,23 +71,22 @@
               <li>Liked Songs</li>
               <li>Albums</li>
               <li>Artists</li>
-              <li>Podcasts</li>
             </ul>
           </div>
 
           <div id="playlist-container" class="mb-7">
             <span
               class="block font-thin text-xs tracking-widest cursor-default mb-2"
-              >PLAYLISTS</span
             >
+              PLAYLISTS
+            </span>
             <ul class="font-bold tracking-wide">
-              <li>monday 8am</li>
-              <li>tuesday is better than monday</li>
-              <li>wednesday malibu</li>
-              <li>thursday morning</li>
-              <li>thanks god it friday</li>
-              <li>saturday night</li>
-              <li>sunday evening</li>
+              <li>Karina Rocket puncher</li>
+              <li>Winter Armamenter</li>
+              <li>Geselle got Xenoglossy</li>
+              <li>NingNing E.d Hacker</li>
+              <li>Naevis we love you</li>
+              <li>What if AE gets hacked</li>
             </ul>
           </div>
         </div>
@@ -108,18 +107,18 @@
             </button>
           </div>
           <img
-            class="w-full h-48 object-cover cursor-pointer"
-            src="https://i.ytimg.com/vi/btIQvYcLNoI/maxresdefault.jpg"
+            class="w-full h-52 object-cover cursor-pointer"
+            src="https://upload.wikimedia.org/wikipedia/en/5/59/Life%27s_Too_Short_English_version.jpg"
           />
         </div>
       </div>
       <div
         id="lyric-container"
-        class="relative overflow-auto w-full h-full bg-gradient-to-t from-red-800 via-red-500 to-yellow-300"
+        class="relative overflow-auto w-full h-full bg-gradient-to-t from-[#8888d6] via-[#f1d4f8] to-[#eea5dc]"
       >
         <div
           class="sticky top-0 w-full h-12 flex flex-row justify-between"
-          style="background: rgb(251, 196, 77)"
+          style="background: rgb(238, 171, 223)"
         >
           <div class="flex" style="margin: 10px">
             <svg
@@ -163,8 +162,9 @@
             <span
               id="user-name"
               class="inline-block text-white text-sm mx-2 mt-1 cursor-default"
-              >NongBig</span
             >
+              NongBig
+            </span>
           </div>
         </div>
         <div
@@ -191,8 +191,9 @@
           <span
             class="text-xs font-bold tracking-wide"
             style="color: rgba(179, 179, 179, 0.6); margin: 10px"
-            >Lyrics provided by love</span
           >
+            Lyrics provided by love
+          </span>
         </div>
       </div>
     </div>
@@ -206,7 +207,7 @@
             <span
               class="text-sm text-white cursor-default hover:underline hover:underline-offset-4"
             >
-              Location Unknown ◐ (feat. BEKA) - Brooklyn Session
+              Life's Too Short (English Ver.)
             </span>
           </div>
           <svg
@@ -224,9 +225,9 @@
             ></path>
           </svg>
         </div>
-        <span class="text-xs cursor-default" style="color: #b3b3b3"
-          >HONNE, BEKA</span
-        >
+        <span class="text-xs cursor-default" style="color: #b3b3b3">
+          aespa
+        </span>
       </div>
       <div class="flex flex-col justify-center items-center flex-1">
         <div class="flex flex-row justify-between w-56 mb-2">
@@ -416,7 +417,7 @@
         preload="metadata"
         id="audio-sound"
         class="w-full hidden"
-        src="./assets/music/location-unknown/audio.mp3"
+        src="./assets/music/lifes-too-short/audio.mp3"
         controls
       ></audio>
     </div>
